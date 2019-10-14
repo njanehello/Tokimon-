@@ -1,12 +1,12 @@
 {
   "name": "assignment2",
   "version": "1.0.0",
-  "description": "",
+  "description": "CMPT 276 A2",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
-  "author": "",
+  "author": "nabbassi",
   "license": "ISC",
   "dependencies": {
     "ejs": "^2.7.1",
