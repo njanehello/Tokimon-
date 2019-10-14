@@ -1,0 +1,20 @@
+body{
+
+    background-image: url("pokemon-wallpaper-5.jpg");
+    
+}
+input{
+    padding: 13px;
+    width: 15% ;
+      margin: 5px 0px 3px 0px;
+      box-sizing: border-box;
+      border-radius: 3px;
+    border: 1px solid #c4c4c4;
+}
+form{
+    color: white;
+    
+}
+.tokimonForm{
+    
+}
