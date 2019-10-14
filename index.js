@@ -23,8 +23,8 @@ app.get('/', (req, res) => {
     });
     res.render('tokimon.ejs')
 });
-app.get('/AddTokimon', (req,res) => { res.render('views/AddTokimon')})
-app.get('/trainer', (req,res) => { res.render('pages/trainer')})
+app.get('/AddTokimon', (req,res) => { res.render('AddTokimon')})
+app.get('/trainer', (req,res) => { res.render('trainer')})
 //app.get('/Database', (req,res) => { res.render('pages/tokidexViewAll')})
 //app.get('/tokidexViewAll', (req,res) => { res.render('pages/tokidexViewAll')});
 
