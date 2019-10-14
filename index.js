@@ -15,9 +15,14 @@ app.use(express.urlencoded({ extended:false }))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
-app.get('/login', (req, res) => {
-    res.render('login');
+app.get('/tokimon', (req, res) => {
+    res.render('tokimon');
    });
+
+   app.get('/AddTokimon', (req, res) => {
+    res.render('AddTokimon');
+   });
+
 app.get('/', (req, res) => {
     var tableCreationQuery = `CREATE TABLE IF NOT EXISTS public.tokimons (tid serial, name varchar(20), height int, weight int, flying int, fighting int, fire int, water int, electric int, ice int, total int, trainername varchar(20))`
     pool.query(tableCreationQuery, (error, result) => {
