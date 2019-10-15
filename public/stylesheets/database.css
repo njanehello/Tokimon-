@@ -14,7 +14,12 @@
     --border_color: #FFDE00;
     --gold_color: #B3A125;
 }
-
+h1{
+    margin-top:0px;
+	text-align: center;
+	color: white;
+	font-size: 72px;
+}
 body {
     margin: 0;
     padding: 0;
