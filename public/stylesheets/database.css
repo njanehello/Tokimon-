@@ -11,6 +11,7 @@
     --electric_color: #FAE078;
     --ice_color: #BCE6E6;
     --white: #FFFFFF;
+    --border_color: rgb(147, 215, 255);
     --gold_color: #B3A125;
 }
 h1{
@@ -81,34 +82,3 @@ th {
     width: 5em;
 }
 
-#selectHeader {
-    width: 4em;
-}
-
-#viewHeader {
-    width: 4em;
-}
-
-#idHeader {
-    width: 6em;
-}
-
-#nameHeader {
-    width: 10em;
-}
-
-#elementHeader {
-    width: 8em;
-}
-
-#trainerHeader {
-    width: 10em;
-}
-
-td {
-    text-align: center;
-}
-
-#buttonArea {
-    text-align: center;
-}
