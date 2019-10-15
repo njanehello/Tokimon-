@@ -6,6 +6,7 @@ body{
 
 h1{
     color: white;
+    text-align: center;
 }
 input{
     padding: 13px;
@@ -14,9 +15,11 @@ input{
       box-sizing: border-box;
       border-radius: 3px;
     border: 1px solid #c4c4c4;
+    float: left;
 }
 form{
     color: white;
     text-align: center;
+    float: left;
     
 }
