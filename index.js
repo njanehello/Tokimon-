@@ -1,10 +1,12 @@
 const express = require('express');
 const path = require('path');
 const PORT = process.env.PORT || 5000
+
 const { Pool } = require('pg');
-var pool;
-pool = new Pool({ 
-    connectionString: process.env.DATABASE_URL
+const pool = new Pool({
+  //connectionString: process.env.DATABASE_URL;
+  connectionString: 'postgres://noratoki:1234@localhost/toki_data';
+  ssl: true
 });
 pool.connect();
 var app = express();
@@ -18,11 +20,12 @@ app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 
 app.get('/', (req, res) => {
-    var tableCreationQuery = `CREATE TABLE IF NOT EXISTS public.tokimons (id serial, trainername varchar(50), tokimonname varchar(50), weight int, height int, fly int, fire int, water int, electric int, frozen int, total int)`
+    var tableCreationQuery = `CREATE TABLE IF NOT EXISTS public.tokimons (id serial, trainername varchar(50), tokimonname varchar(50), weight int, height int, fly int, fight int, fire int, water int, electric int, frozen int, total int)`
     pool.query(tableCreationQuery, (error, result) => {
     });
     res.render('tokimon.ejs')
 });
+
 app.get('/AddTokimon', (req,res) => { res.render('AddTokimon')})
 app.get('/trainer', (req,res) => { res.render('trainer')})
 app.get('/database', (req,res) => { res.render('database')})
@@ -80,7 +83,7 @@ app.get('/remove/:id', (req,res) => {
 
 app.post("/submit", (req, res) => {
     
-    var submitQuery = `INSERT INTO tokimons(trainername, tokimonname, weight, height, fly, fire, water, electric, frozen, total) VALUES('${req.body.trainerName}','${req.body.name}',${req.body.weight},${req.body.height},${req.body.fly}, ${req.body.fire},${req.body.water},${req.body.electric},${req.body.frozen},${req.body.total})`;
+    var submitQuery = `INSERT INTO tokimons(trainername, tokimonname, weight, height, fly, fight, fire, water, electric, frozen, total) VALUES('${req.body.trainerName}','${req.body.name}',${req.body.weight},${req.body.height},${req.body.fly},${req.body.fight}, ${req.body.fire},${req.body.water},${req.body.electric},${req.body.frozen},${req.body.total})`;
     
     pool.query(submitQuery, (error, result) => {
         if (error)
