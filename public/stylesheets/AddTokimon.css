@@ -3,6 +3,10 @@ body{
     background-image: url("/pictures/pokemon-wallpaper-5.jpg");
     
 }
+
+h1{
+    color: white;
+}
 input{
     padding: 13px;
     width: 15% ;
