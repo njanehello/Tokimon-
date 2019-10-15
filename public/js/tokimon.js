@@ -1,197 +1,214 @@
+// Global Variables
+var inputArray = document.querySelectorAll(".inputs");
 
-// Declaring Weight variables 
-
-var totalWeight = 0.0;
-var weight1 = 0.0;
-var weight2 = 0.0;
-var weight3 = 0.0;
-var weight4 = 0.0;
-var arrayWeightinputs = [0.0,0.0,0.0,0.0];
-
-//Parse input weight values!
-function checkInputWeights() {
-    weight1 = parseFloat(document.querySelector("#Weight1").value);
-    weight2 = parseFloat(document.querySelector("#Weight2").value);
-    weight3 = parseFloat(document.querySelector("#Weight3").value);
-    weight4 = parseFloat(document.querySelector("#Weight4").value);
+/*
+    Getters for Attributes
+*/
+function getName() {
+    return document.querySelector("#inputName").value;
 }
 
-// Declaring input variables 
-var inputNum1 = 0.0;
-var inputNum2 = 0.0;
-var inputNum3 = 0.0;
-var inputNum4 = 0.0;
-var inputDen1 = 0.0;
-var inputDen2 = 0.0;
-var inputDen3 = 0.0;
-var inputDen4 = 0.0;
-
-// Calculated grades to be presented
-var grade1 = 0.0;
-var grade2 = 0.0;
-var grade3 = 0.0;
-var grade4 = 0.0;
-var arrayInputs= [0.0,0.0,0.0,0.0];
-
-// Parse input numerator and denominator values!
-
-function checkInputA1() {
-    inputNum1 = parseFloat(document.querySelector("#numeratorValue1").value);
-    inputDen1 = parseFloat(document.querySelector("#denominatorValue1").value);
-}
-function checkInputA2() {
-    inputNum2 = parseFloat(document.querySelector("#numeratorValue2").value);
-    inputDen2 = parseFloat(document.querySelector("#denominatorValue2").value);
+function getHeight() {
+    return parseInt(document.querySelector("#inputHeight").value);
 }
 
-function checkInputA3() {
-    inputNum3 = parseFloat(document.querySelector("#numeratorValue3").value);
-    inputDen3 = parseFloat(document.querySelector("#denominatorValue3").value);
+function getWeight() {
+    return parseInt(document.querySelector("#inputWeight").value);
 }
 
-function checkInputA4() {
-    inputNum4 = parseFloat(document.querySelector("#numeratorValue4").value);
-    inputDen4 = parseFloat(document.querySelector("#denominatorValue4").value);
+function getFlying() {
+    return parseInt(document.querySelector("#inputFlying").value);
 }
 
-//Function to convert into percentage format
-function percentConversion(numValue) {
-    var percentConvert= (numValue).toFixed(2) + "%";
-    return percentConvert;
+function getFighting() {
+    return parseInt(document.querySelector("#inputFighting").value);
 }
 
-// Function to make sure no grades are divided by 0 and to calculate percentage
-function percentCalculation(inputNumerator, inputDenominator){
-    if(inputDenominator == 0 || !isFinite(inputDenominator)) {
-        percentage = 0;
+function getFire() {
+    return parseInt(document.querySelector("#inputFire").value);
+}
+
+function getWater() {
+    return parseInt(document.querySelector("#inputWater").value);
+}
+
+function getElectric() {
+    return parseInt(document.querySelector("#inputElectric").value);
+}
+
+function getIce() {
+    return parseInt(document.querySelector("#inputIce").value);
+}
+
+function getTotal() {
+    return parseInt(document.querySelector("#inputTotal").value);
+}
+
+function getTrainerName() {
+    return document.querySelector("#inputTrainerName").value;
+}
+
+/*
+    Setters for Attributes
+*/
+function setName(name) {
+    document.querySelector("#inputName").value = name;
+}
+
+function setHeight(height) {
+    document.querySelector("#inputHeight").value = parseInt(height);
+}
+
+function setWeight(weight) {
+    document.querySelector("#inputWeight").value = parseInt(weight);
+}
+
+function setFlying(flying) {
+    document.querySelector("#inputFlying").value = parseInt(flying);
+}
+
+function setFighting(fighting) {
+    document.querySelector("#inputFighting").value = parseInt(fighting);
+}
+
+function setFire(fire) {
+    document.querySelector("#inputFire").value = parseInt(fire);
+}
+
+function setWater(water) {
+    document.querySelector("#inputWater").value = parseInt(water);
+}
+
+function setElectric(electric) {
+    document.querySelector("#inputElectric").value = parseInt(electric);
+}
+
+function setIce(ice) {
+    document.querySelector("#inputIce").value = parseInt(ice);
+}
+
+function setTotal(total) {
+    document.querySelector("#inputTotal").value = parseInt(total);
+}
+
+function setTrainerName(trainerName) {
+    document.querySelector("#inputTrainerName").value = trainerName;
+}
+
+/*
+    Function to create tokimon objects in JSON format
+*/
+function createTokimon() {
+    let sum = (getFlying() + getFighting() + getFire() + getWater() + getElectric() + getIce())
+    var tokimon = {
+        [name] : getName(),
+        [height] : getHeight(),
+        [weight] : getWeight(),
+        [flying] : getFlying(),
+        [fighting] : getFighting(),
+        [fire] : getFire(),
+        [water] : getWater(),
+        [electric] : getElectric(),
+        [ice] : getIce(),
+        [total] : sum
+    }
+}
+
+/*  
+    Random Number Generator
+    @max - enter the maximum number that should be generated
+    @return - returns a random number less than max
+*/
+function getRandom(max) {
+    return Math.floor(Math.random() * Math.floor(max)) + 1;
+  }
+
+/*
+    Function to Calculate Total
+    @return - return the total of the 6 other battle attributes
+*/
+function sumTotal() {
+    return (getFlying() + getFighting() + getFire() + getWater() + getElectric() + getIce());
+}
+
+/*
+    Automatically Update Total Number on KeyPress/Click
+*/
+inputArray.forEach(function(element) {
+    element.addEventListener("keyup", function() {
+        setTotal(sumTotal());
+    }
+)});
+
+inputArray.forEach(function(element) {
+    element.addEventListener("click", function() {
+        setTotal(sumTotal());
+    }
+)});
+
+
+/*
+    Randomize All Tokimon Attributes in Form
+*/
+// *note: https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
+function randomize() {
+    setName(Math.random().toString(36).substr(2, 5));
+    setHeight(getRandom(200));
+    setWeight(getRandom(200));
+    setFlying(getRandom(100));
+    setFighting(getRandom(100));
+    setFire(getRandom(100));
+    setWater(getRandom(100));
+    setElectric(getRandom(100));
+    setIce(getRandom(100));
+    setTotal(sumTotal());
+    setTrainerName(Math.random().toString(36).substr(2, 7));
+}
+
+// Event Listeners
+document.querySelector("#randomizeButton").addEventListener("click", randomize);
+
+/*
+Function to display or gray out clear all button
+*/
+function displayClearButton() {
+    if (clearHidden) {
+        document.querySelector("#clear_all_button").style.visibility = "visible";
+        clearHidden = false;
     }
     else {
-        percentage = (inputNumerator/inputDenominator) * 100;
-    } 
-    return percentage;
-}
-// Input A1 Numerator
-document.querySelector(".numberatorInput1").addEventListener("keyup", function() {
-    document.querySelector("#percent1").innerHTML = percentage1();
-});
-
-// Input A1 Denominator 
-document.querySelector(".denominatorInput1").addEventListener("keyup", function() {
-    document.querySelector("#percent1").innerHTML = percentage1();
-});
-
-// Calculate percentage of A1
-function percentage1() {
-    checkInputA1();
-    grade1 = percentCalculation(inputNum1, inputDen1);
-    return percentConversion(grade1);
-}
-// Input A2 Numerator
-document.querySelector(".numberatorInput2").addEventListener("keyup", function() {
-    document.querySelector("#percent2").innerHTML = percentage2();
-});
-
-// Input A2 Denominator
-document.querySelector(".denominatorInput2").addEventListener("keyup", function() {
-    document.querySelector("#percent2").innerHTML = percentage2();
-});
-
-// Calculate percentage of A2
-function percentage2() {
-    checkInputA2();
-    grade2 = percentCalculation(inputNum2, inputDen2);
-    return percentConversion(grade2);
-}
-// Input A3 Numerator
-document.querySelector(".numberatorInput3").addEventListener("keyup", function() {
-    document.querySelector("#percent3").innerHTML = percentage3();
-   
-});
-
-// Input A3 Denominator
-document.querySelector(".denominatorInput3").addEventListener("keyup", function() {
-    document.querySelector("#percent3").innerHTML = percentage3();
-});
-
-// Function to calculate percentage of A3
-function percentage3() {
-    checkInputA3();
-    grade3 = percentCalculation(inputNum3, inputDen3);
-    return percentConversion(grade3);
-}
-// Input A4 Numerator
-document.querySelector(".numberatorInput4").addEventListener("keyup", function() {
-    document.querySelector("#percent4").innerHTML = percentage4();
-});
-
-// Input A3 Denominator
-document.querySelector(".denominatorInput4").addEventListener("keyup", function() {
-    document.querySelector("#percent4").innerHTML = percentage4();
-});
-// Function to calculate percentage of A4
-function percentage4() {
-    checkInputA4();
-    grade4 = percentCalculation(inputNum4, inputDen4);
-    return percentConversion(grade4);
-}
-
-
-//Function to calculate weight average 
-function weightPercent(){
-    checkInputWeights();
-    var result = 0.0;
-    var totalWeight = 0.0;
-    if(inputDen1 != 0){
-        arrayWeightinputs[0] = (inputNum1/inputDen1)*weight1;
-        totalWeight += weight1;
-    }
-    if(inputDen2 != 0){
-        arrayWeightinputs[1] = (inputNum2/inputDen2)*weight2;
-        totalWeight += weight2;
-
-    }
-    if(inputDen3 != 0){
-        arrayWeightinputs[2] = (inputNum3/inputDen3)*weight3;
-        totalWeight += weight3;
-    }
-
-    if(inputDen4 != 0){
-        arrayWeightinputs[3] = (inputNum4/inputDen4)*weight4;
-        totalWeight += weight4;
-    }
-    for (var i = 0; i < arrayWeightinputs.length; i++) {
-         result += arrayWeightinputs[i];
-    }
-    document.querySelector("#result").innerHTML = percentCalculation(result, totalWeight).toFixed(2) + "%";
-}
-document.querySelector("#weightButton").addEventListener("click", weightPercent);
-
-//Function to calculate and display the mean percentage
-function meanPercentCalculation(){
-    var result = 0.0;
-    var counter = 0.0;
-    if(inputDen1 != 0){
-        arrayInputs[0] = inputNum1/inputDen1;
-        counter += 1;
-    }
-    if(inputDen2 != 0){
-        arrayInputs[1] = inputNum2/inputDen2;
-        counter += 1;
-
-    }
-    if(inputDen3 != 0){
-        arrayInputs[2] = inputNum3/inputDen3;
-        counter += 1;
+        for (var i = 0; i < objectArray.length; i++) {
+            for (var j = 0; j < objectArray[i].length; j++) {
+                if (objectArray[i][j].value) {
+                    blank = false;
+                }
+            }
         }
-
-    if(inputDen4 != 0){
-        arrayInputs[3] = inputNum4/inputDen4;
-        counter += 1;
+        if (blank) {
+            document.querySelector("#clear_all_button").style.background = "#B0BED9";
+        } else {
+            document.querySelector("#clear_all_button").style.background = "#a6192e";
+        }
     }
-    for (var i = 0; i < arrayInputs.length; i++) {
-         result += arrayInputs[i];
-    }
-    document.querySelector("#result").innerHTML = percentCalculation(result, counter).toFixed(2) + "%";
 }
 
-document.querySelector("#meanButton").addEventListener("click", meanPercentCalculation);
+/* 
+Functions to perform percentage calculation in real-time
+*/
+
+//Function to convert into percentage format
+function convertToPercent(num) {
+    var pct = (num*100).toFixed(2) + "%";
+    return pct;
+}
+
+// Function to go through all input fields and clear data
+function clearForm() {
+    if (!blank) {
+        for (var i = 0; i < objectArray.length; i++) {
+            for (var j = 0; j < objectArray[i].length; j++) {
+                objectArray[i][j].value = '';
+            }
+        }
+    }
+}
