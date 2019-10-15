@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 
 app.get('/AddTokimon', (req,res) => { res.render('AddTokimon')})
 app.get('/trainer', (req,res) => { res.render('trainer')})
-app.get('/database', (req,res) => { res.render('database')})
+//app.get('/database', (req,res) => { res.render('database')})
 
 app.get('/database', (req, res) => {
     var getTableInfo = `SELECT * FROM tokimons`;
@@ -39,6 +39,9 @@ app.get('/database', (req, res) => {
     });
 });
 
+
+
+/*
 app.get('/database/:id', (req,res) => {
     req.params.id // we can grab the id from the request HTML
     var idInfo = `SELECT * FROM tokimons WHERE id=${req.params.id}`;
@@ -90,4 +93,4 @@ app.post("/submit", (req, res) => {
     });
     
     res.render('submit.ejs')
-});
+});*/
