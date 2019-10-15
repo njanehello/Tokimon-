@@ -15,11 +15,15 @@ input{
       box-sizing: border-box;
       border-radius: 3px;
     border: 1px solid #c4c4c4;
-    float: left;
+    
 }
 form{
     color: white;
-    text-align: center;
-    float: left;
     
+}
+
+label{
+    width: 240px;
+    display: inline-block;
+    text-align: right;
 }
