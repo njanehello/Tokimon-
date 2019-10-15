@@ -1,12 +1,11 @@
 body{
 
-    background-image: url("/pictures/pokemon-wallpaper-5.jpg");
-    
+    background-image: url("/pictures/pokemon-wallpaper-5.jpg"); 
 }
 
 h1{
     color: white;
-    padding-left: 150px;
+    padding-left: 170px;
 }
 input{
     padding: 13px;
