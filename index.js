@@ -19,8 +19,8 @@ app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 
 app.get('/', (req, res) => {
-    var tableCreationQuery = `CREATE TABLE IF NOT EXISTS public.tokimons (id serial, trainername varchar(50), tokimonname varchar(50), weight int, height int, fly int, fight int, fire int, water int, electric int, frozen int, total int)`
-    pool.query(tableCreationQuery, (error, result) => {
+    var tableCreation = `CREATE TABLE IF NOT EXISTS public.tokimons (id serial, trainername varchar(50), tokimonname varchar(50), weight int, height int, fly int, fight int, fire int, water int, electric int, frozen int, total int)`
+    pool.query(tableCreation, (error, result) => {
     });
     res.render('tokimon.ejs')
 });
@@ -30,8 +30,8 @@ app.get('/trainer', (req,res) => { res.render('trainer')})
 app.get('/database', (req,res) => { res.render('database')})
 
 app.get('/database', (req, res) => {
-    var getUsersQuery = `SELECT * FROM tokimons`;
-    pool.query(getUsersQuery, (error, result) => {
+    var getTableInfo = `SELECT * FROM tokimons`;
+    pool.query(getTableInfo, (error, result) => {
         if (error)
             res.end(error);
         var results = {'rows': result.rows };
@@ -41,8 +41,8 @@ app.get('/database', (req, res) => {
 
 app.get('/database/:id', (req,res) => {
     req.params.id // we can grab the id from the request HTML
-    var IDQuery = `SELECT * FROM tokimons WHERE id=${req.params.id}`;
-    pool.query(IDQuery, (error, result) => {
+    var idInfo = `SELECT * FROM tokimons WHERE id=${req.params.id}`;
+    pool.query(idInfo, (error, result) => {
         if (error)
             res.end(error);
         var results = {'rows': result.rows };
@@ -51,16 +51,16 @@ app.get('/database/:id', (req,res) => {
 });
 
 app.post("/update", function(req, res) {
-    var changeQuery = `UPDATE tokimons SET trainername = '${req.body.trainerName}', tokimonname = '${req.body.name}', weight = ${req.body.weight}, height = ${req.body.height}, fly = ${req.body.fly}, fire = ${req.body.fire}, water = ${req.body.water}, electric = ${req.body.electric}, frozen = ${req.body.frozen}, total = ${req.body.total}  WHERE id = ${req.body.sid}`;
+    var updateInfo = `UPDATE tokimons SET trainername = '${req.body.trainerName}', tokimonname = '${req.body.tokimonname}', weight = ${req.body.weight}, height = ${req.body.height}, fly = ${req.body.fly}, fight = ${req.body.fight}, fire = ${req.body.fire}, water = ${req.body.water}, electric = ${req.body.electric}, frozen = ${req.body.frozen}, total = ${req.body.total}  WHERE id = ${req.body.id}`;
 
-    pool.query(changeQuery, (error, result) => {
+    pool.query(updateInfo, (error, result) => {
         if (error)
             res.end(error);
     });
 
-    var getUsersQuery = `SELECT * FROM tokimons`;
+    var getTableInfo = `SELECT * FROM tokimons`;
     setTimeout(function(){
-        pool.query(getUsersQuery, (error, result) => {
+        pool.query(getTableInfo, (error, result) => {
             if (error)
                 res.end(error);
             var results = {'rows': result.rows };
@@ -82,7 +82,7 @@ app.get('/remove/:id', (req,res) => {
 
 app.post("/submit", (req, res) => {
     
-    var submitQuery = `INSERT INTO tokimons(trainername, tokimonname, weight, height, fly, fight, fire, water, electric, frozen, total) VALUES('${req.body.trainerName}','${req.body.name}',${req.body.weight},${req.body.height},${req.body.fly},${req.body.fight}, ${req.body.fire},${req.body.water},${req.body.electric},${req.body.frozen},${req.body.total})`;
+    var submitQuery = `INSERT INTO tokimons(trainername, tokimonname, weight, height, fly, fight, fire, water, electric, frozen, total) VALUES('${req.body.trainername}','${req.body.tokimonname}',${req.body.weight},${req.body.height},${req.body.fly},${req.body.fight}, ${req.body.fire},${req.body.water},${req.body.electric},${req.body.frozen},${req.body.total})`;
     
     pool.query(submitQuery, (error, result) => {
         if (error)
