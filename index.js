@@ -5,8 +5,7 @@ const PORT = process.env.PORT || 5000
 const { Pool } = require('pg');
 const pool = new Pool({
   //connectionString: process.env.DATABASE_URL;
-  connectionString: 'postgres://noratoki:1234@localhost/toki_data';
-  ssl: true
+  connectionString: 'postgres://noratoki:1234@localhost/toki_data'
 });
 pool.connect();
 var app = express();
