@@ -4,108 +4,101 @@ var inputArray = document.querySelectorAll(".inputs");
 /*
     Getters for Attributes
 */
-function getName() {
-    return document.querySelector("#inputName").value;
-}
 
-function getHeight() {
-    return parseInt(document.querySelector("#inputHeight").value);
+function getTrainerName() {
+    return document.querySelector("#trn").value;
+}
+function getName() {
+    return document.querySelector("#tn").value;
 }
 
 function getWeight() {
-    return parseInt(document.querySelector("#inputWeight").value);
+    return parseInt(document.querySelector("#w").value);
 }
 
-function getFlying() {
-    return parseInt(document.querySelector("#inputFlying").value);
+function getHeight() {
+    return parseInt(document.querySelector("#h").value);
 }
 
-function getFighting() {
-    return parseInt(document.querySelector("#inputFighting").value);
+function getFly() {
+    return parseInt(document.querySelector("#fl").value);
 }
+
 
 function getFire() {
-    return parseInt(document.querySelector("#inputFire").value);
+    return parseInt(document.querySelector("#fi").value);
 }
 
 function getWater() {
-    return parseInt(document.querySelector("#inputWater").value);
+    return parseInt(document.querySelector("#wa").value);
 }
 
 function getElectric() {
-    return parseInt(document.querySelector("#inputElectric").value);
+    return parseInt(document.querySelector("#e").value);
 }
 
-function getIce() {
-    return parseInt(document.querySelector("#inputIce").value);
+function getFrozen() {
+    return parseInt(document.querySelector("#fr").value);
 }
 
 function getTotal() {
-    return parseInt(document.querySelector("#inputTotal").value);
-}
-
-function getTrainerName() {
-    return document.querySelector("#inputTrainerName").value;
+    return parseInt(document.querySelector("#total").value);
 }
 
 /*
     Setters for Attributes
 */
+
+function setTrainerName(trainerName) {
+    document.querySelector("#trn").value = trainerName;
+}
 function setName(name) {
-    document.querySelector("#inputName").value = name;
+    document.querySelector("#tn").value = name;
 }
 
-function setHeight(height) {
-    document.querySelector("#inputHeight").value = parseInt(height);
+function setHeight(weight) {
+    document.querySelector("#w").value = parseInt(weight);
 }
 
-function setWeight(weight) {
-    document.querySelector("#inputWeight").value = parseInt(weight);
+function setWeight(height) {
+    document.querySelector("#h").value = parseInt(height);
 }
 
-function setFlying(flying) {
-    document.querySelector("#inputFlying").value = parseInt(flying);
-}
-
-function setFighting(fighting) {
-    document.querySelector("#inputFighting").value = parseInt(fighting);
+function setFly(fly) {
+    document.querySelector("#fl").value = parseInt(fly);
 }
 
 function setFire(fire) {
-    document.querySelector("#inputFire").value = parseInt(fire);
+    document.querySelector("#fi").value = parseInt(fire);
 }
 
 function setWater(water) {
-    document.querySelector("#inputWater").value = parseInt(water);
+    document.querySelector("#wa").value = parseInt(water);
 }
 
 function setElectric(electric) {
-    document.querySelector("#inputElectric").value = parseInt(electric);
+    document.querySelector("#e").value = parseInt(electric);
 }
 
-function setIce(ice) {
-    document.querySelector("#inputIce").value = parseInt(ice);
+function setFrozen(ice) {
+    document.querySelector("#fr").value = parseInt(ice);
 }
 
 function setTotal(total) {
-    document.querySelector("#inputTotal").value = parseInt(total);
+    document.querySelector("#total").value = parseInt(total);
 }
 
-function setTrainerName(trainerName) {
-    document.querySelector("#inputTrainerName").value = trainerName;
-}
 
 /*
     Function to create tokimon objects in JSON format
 */
 function createTokimon() {
-    let sum = (getFlying() + getFighting() + getFire() + getWater() + getElectric() + getIce())
+    let sum = (getFly() + getFire() + getWater() + getElectric() + getFrozen())
     var tokimon = {
-        [name] : getName(),
+        [tokimonname] : getName(),
         [height] : getHeight(),
         [weight] : getWeight(),
-        [flying] : getFlying(),
-        [fighting] : getFighting(),
+        [fly] : getFly(),
         [fire] : getFire(),
         [water] : getWater(),
         [electric] : getElectric(),
@@ -114,21 +107,12 @@ function createTokimon() {
     }
 }
 
-/*  
-    Random Number Generator
-    @max - enter the maximum number that should be generated
-    @return - returns a random number less than max
-*/
-function getRandom(max) {
-    return Math.floor(Math.random() * Math.floor(max)) + 1;
-  }
-
 /*
     Function to Calculate Total
     @return - return the total of the 6 other battle attributes
 */
 function sumTotal() {
-    return (getFlying() + getFighting() + getFire() + getWater() + getElectric() + getIce());
+    return (getFly() + getFire() + getWater() + getElectric() + getFrozen());
 }
 
 /*
@@ -146,27 +130,6 @@ inputArray.forEach(function(element) {
     }
 )});
 
-
-/*
-    Randomize All Tokimon Attributes in Form
-*/
-// *note: https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
-function randomize() {
-    setName(Math.random().toString(36).substr(2, 5));
-    setHeight(getRandom(200));
-    setWeight(getRandom(200));
-    setFlying(getRandom(100));
-    setFighting(getRandom(100));
-    setFire(getRandom(100));
-    setWater(getRandom(100));
-    setElectric(getRandom(100));
-    setIce(getRandom(100));
-    setTotal(sumTotal());
-    setTrainerName(Math.random().toString(36).substr(2, 7));
-}
-
-// Event Listeners
-document.querySelector("#randomizeButton").addEventListener("click", randomize);
 
 /*
 Function to display or gray out clear all button

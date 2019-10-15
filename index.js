@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 });
 app.get('/AddTokimon', (req,res) => { res.render('AddTokimon')})
 app.get('/trainer', (req,res) => { res.render('trainer')})
-//app.get('/database', (req,res) => { res.render('database')})
+app.get('/database', (req,res) => { res.render('database')})
 
 app.get('/database', (req, res) => {
     var getUsersQuery = `SELECT * FROM tokimons`;
@@ -37,9 +37,9 @@ app.get('/database', (req, res) => {
     });
 });
 
-app.get('/database/:tid', (req,res) => {
-    req.params.tid // we can grab the id from the request HTML
-    var IDQuery = `SELECT * FROM tokimons WHERE tid=${req.params.tid}`;
+app.get('/database/:id', (req,res) => {
+    req.params.id // we can grab the id from the request HTML
+    var IDQuery = `SELECT * FROM tokimons WHERE id=${req.params.id}`;
     pool.query(IDQuery, (error, result) => {
         if (error)
             res.end(error);
@@ -49,7 +49,7 @@ app.get('/database/:tid', (req,res) => {
 });
 
 app.post("/update", function(req, res) {
-    var changeQuery = `UPDATE tokimons SET name = '${req.body.name}', height = ${req.body.height}, weight = ${req.body.weight}, flying = ${req.body.flying}, fighting = ${req.body.fighting}, fire = ${req.body.fire}, water = ${req.body.water}, electric = ${req.body.electric}, ice = ${req.body.ice}, total = ${req.body.total}, trainername = '${req.body.trainerName}' WHERE tid = ${req.body.tid}`;
+    var changeQuery = `UPDATE tokimons SET trainername = '${req.body.trainerName}', tokimonname = '${req.body.name}', weight = ${req.body.weight}, height = ${req.body.height}, fly = ${req.body.fly}, fire = ${req.body.fire}, water = ${req.body.water}, electric = ${req.body.electric}, frozen = ${req.body.frozen}, total = ${req.body.total}  WHERE id = ${req.body.sid}`;
 
     pool.query(changeQuery, (error, result) => {
         if (error)
@@ -68,9 +68,9 @@ app.post("/update", function(req, res) {
     
 });
 
-app.get('/remove/:tid', (req,res) => {
+app.get('/remove/:id', (req,res) => {
     req.params.tid // we can grab the id from the request HTML
-    var deleteQuery = `DELETE FROM tokimons WHERE tid=${req.params.tid}`;
+    var deleteQuery = `DELETE FROM tokimons WHERE id=${req.params.id}`;
     pool.query(deleteQuery, (error, result) => {
         if (error)
             res.end(error);
@@ -80,7 +80,7 @@ app.get('/remove/:tid', (req,res) => {
 
 app.post("/submit", (req, res) => {
     
-    var submitQuery = `INSERT INTO tokimons(name, height, weight, flying, fighting, fire, water, electric, ice, total, trainername) VALUES('${req.body.name}',${req.body.height},${req.body.weight},${req.body.flying},${req.body.fighting},${req.body.fire},${req.body.water},${req.body.electric},${req.body.ice},${req.body.total},'${req.body.trainerName}')`;
+    var submitQuery = `INSERT INTO tokimons(trainername, tokimonname, weight, height, fly, fire, water, electric, frozen, total) VALUES('${req.body.trainerName}','${req.body.name}',${req.body.weight},${req.body.height},${req.body.fly}, ${req.body.fire},${req.body.water},${req.body.electric},${req.body.frozen},${req.body.total})`;
     
     pool.query(submitQuery, (error, result) => {
         if (error)
