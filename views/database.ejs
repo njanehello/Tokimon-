@@ -29,25 +29,7 @@
                             <th class="displayHeader" id="viewHeader">EDIT</th>
                             <th class="displayHeader" id="selectHeader">DELETE</th>
                         </tr>
-                        <%for(var i=0; i<rows.length; i++) {%>
-                                    <tr bgcolor="#EE99AC">
-                                        <td><%= rows[i].tid %></td>
-                                        <td><%= rows[i].name %></td>
-                                        <td><%= rows[i].height %></td>
-                                        <td><%= rows[i].weight %></td>
-                                        <td> Flying </td>
-                                        <td><%= rows[i].flying %></td>
-                                        <td><%= rows[i].fighting %></td>
-                                        <td><%= rows[i].fire %></td>
-                                        <td><%= rows[i].water %></td>
-                                        <td><%= rows[i].electric %></td>
-                                        <td><%= rows[i].ice %></td>
-                                        <td><%= rows[i].total %></td>
-                                        <td><%= rows[i].trainername %></td>
-                                        <td><a href='/database/<%=rows[i].tid%>'>View</a></td>
-        
-                                    </tr>
-                            <% } %>
+
                         </div>
                         </table>
                         </form>
