@@ -44,6 +44,11 @@ body {
     width: 100%;
     font-size: 0;
 }
+p{
+    text-align: center;
+    color: white;
+    font-size: 52px;
+}
 
 li {
     display: inline;
