@@ -25,8 +25,10 @@ app.get('/', (req, res) => {
 });
 app.get('/AddTokimon', (req,res) => { res.render('AddTokimon')})
 app.get('/trainer', (req,res) => { res.render('trainer')})
+app.get('/database', (req,res) => { res.render('database')})
 //app.get('/tokidexViewAll', (req,res) => { res.render('pages/tokidexViewAll')});
 
+app.get('/add', (req, res) => res.render('add.ejs'))
 
 app.get('/database', (req, res) => {
     var getUsersQuery = `SELECT * FROM tokimons`;
