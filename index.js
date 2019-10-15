@@ -18,7 +18,7 @@ app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 
 app.get('/', (req, res) => {
-    var tableCreationQuery = `CREATE TABLE IF NOT EXISTS public.tokimons (tid serial, name varchar(20), height int, weight int, flying int, fighting int, fire int, water int, electric int, ice int, total int, trainername varchar(20))`
+    var tableCreationQuery = `CREATE TABLE IF NOT EXISTS public.tokimons (id serial, trainername varchar(20), tokimonname varchar(50), weight int, height int, fly int, fire int, water int, electric int, frozen int, total int)`
     pool.query(tableCreationQuery, (error, result) => {
     });
     res.render('tokimon.ejs')
@@ -28,7 +28,7 @@ app.get('/trainer', (req,res) => { res.render('trainer')})
 app.get('/database', (req,res) => { res.render('database')})
 //app.get('/tokidexViewAll', (req,res) => { res.render('pages/tokidexViewAll')});
 
-app.get('/add', (req, res) => res.render('add.ejs'))
+//app.get('/add', (req, res) => res.render('add.ejs'))
 
 app.get('/database', (req, res) => {
     var getUsersQuery = `SELECT * FROM tokimons`;
