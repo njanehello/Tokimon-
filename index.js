@@ -30,17 +30,17 @@ app.get('/database', (req,res) => { res.render('database')})
 
 app.get('/add', (req, res) => res.render('add.ejs'))
 
-app.get('/display', (req, res) => {
+app.get('/database', (req, res) => {
     var getUsersQuery = `SELECT * FROM tokimons`;
     pool.query(getUsersQuery, (error, result) => {
         if (error)
             res.end(error);
         var results = {'rows': result.rows };
-        res.render('display.ejs', results)
+        res.render('database.ejs', results)
     });
 });
 
-app.get('/display/:tid', (req,res) => {
+app.get('/database/:tid', (req,res) => {
     req.params.tid // we can grab the id from the request HTML
     var IDQuery = `SELECT * FROM tokimons WHERE tid=${req.params.tid}`;
     pool.query(IDQuery, (error, result) => {
@@ -65,7 +65,7 @@ app.post("/update", function(req, res) {
             if (error)
                 res.end(error);
             var results = {'rows': result.rows };
-            res.render('display.ejs', results)
+            res.render('database.ejs', results)
         });
     }, 500);
     
