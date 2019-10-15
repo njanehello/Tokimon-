@@ -18,7 +18,7 @@ app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 
 app.get('/', (req, res) => {
-    var tableCreationQuery = `CREATE TABLE IF NOT EXISTS public.tokimons (id serial, trainername varchar(20), tokimonname varchar(50), weight int, height int, fly int, fire int, water int, electric int, frozen int, total int)`
+    var tableCreationQuery = `CREATE TABLE IF NOT EXISTS public.tokimons (id serial, trainername varchar(50), tokimonname varchar(50), weight int, height int, fly int, fire int, water int, electric int, frozen int, total int)`
     pool.query(tableCreationQuery, (error, result) => {
     });
     res.render('tokimon.ejs')

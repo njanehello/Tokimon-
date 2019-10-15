@@ -94,11 +94,7 @@
                 </div>
 
                 <div class="cardButtom" id="cardButtom">
-                    <% if (rows[0].flying > Math.max(rows[0].fighting, rows[0].fire, rows[0].water, rows[0].electric, rows[0].ice)) { %>
-                        <p>
-                            Flying-type Tokimons have an advantage over fighting-type Tokimons, but are weak
-                            against ice-type Tokimons.
-                        </p>
+
                         <script> document.querySelector("#inputPrimary").value = "Flying"; </script>
                     <% } else if (rows[0].fighting > Math.max(rows[0].flying, rows[0].fire, rows[0].water, rows[0].electric, rows[0].ice)) { %>
                         <p>
