@@ -1,7 +1,8 @@
 body{
 
-    background: url("back.jpg"); 
-
+    background: url("/pictures/back.jpg"); 
+    align-self: center;
+    padding-right:500px;
 }
 
 title{
