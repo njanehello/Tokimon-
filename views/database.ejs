@@ -1,37 +1,29 @@
-<!DOCTYPE html>
-<html lang="en-US">
+
+<html>
 <head>
     <meta charset="UTF-8">
-    <title> YOUR POKIMON </title>
+    <title> YOUR TOKIMON </title>
     <link rel="stylesheet" href="/stylesheets/database.css" type="text/css" media="all">
 </head>
+
 <body>
-        <div id=displayDescription>
-                <h1> Tokimon Database </h1>
-                <p> Your tokimon database! Feel free to delete or edit any of the following: </p>
-                </div>
-                <form id="form" action="/remove" method="post">
-                    <table>
-                        <div>
-                        <tr>
-                            <th class="displayHeader" id="idHeader">ID</th>
-                            <th class="displayHeader" id="trainerHeader">Trainer Name</th>
-                            <th class="displayHeader" id="nameHeader">Tokimon Name</th>
-                            <th class="displayHeader" id="weightHeader">Weight</th>
-                            <th class="displayHeader" id="heightHeader">Height</th>
-                            <th class="displayHeader" id="flyingHeader">Fly</th>
-                            <th class="displayHeader" id="fireHeader">Fire</th>
-                            <th class="displayHeader" id="waterHeader">Water</th>
-                            <th class="displayHeader" id="electricHeader">Electric</th>
-                            <th class="displayHeader" id="iceHeader">Frozen</th>
-                            <th class="displayHeader" id="totalHeader">Total</th>
-                            <th class="displayHeader" id="viewHeader">EDIT</th>
-                            <th class="displayHeader" id="selectHeader">DELETE</th>
-                        </tr>
+<div class="container">
+<h1>Database Results</h1>
+<p> Your Tokimon Database! You may EDIT or REMOVE from the Database! </p>
+<form id="form" action="/remove" method="post">
 
-                        </div>
-                        </table>
-                        </form>
+    <ul>
+            <li><%= "ID" %> <%= "Trainer Name"%> <%= "Tokimon Name"%> <%= "Weight"%>  <%= "Height"%>  
+                <%= "Fly"%>  <%= "Fight"%> <%= "Fire"%>  <%= "Water"%>  <%= "Electric"%> <%= "Frozen"%> <%= "Electric"%>  <%= "Total"%>  <%= "EDIT"%>  <%= "REMOVE"%> </li>
+                <br>
+        <% for (var j=0; j<rows.length; j++) {%>
+            <li> <%= rows[j].id %>     <%= rows[j].trainername %>  <%= rows[j].tokimonname%>  <%= rows[j].weight%>  <%= rows[j].height%>  <%= rows[j].fly%>  
+                <%= rows[j].fight%>  <%= rows[j].fire%>  <%= rows[j].water%>  <%= rows[j].electric%>  <%= rows[j].frozen%></li>
+                <br>
+        <% }; %>
+    </ul>
+</form>
 
+</div>
 </body>
 </html>

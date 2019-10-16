@@ -1,5 +1,5 @@
 // Global Variables
-var inputArray = document.querySelectorAll(".inputs");
+var arrInput= document.querySelectorAll(".inputs");
 
 /*
     Getters for Attributes
@@ -13,6 +13,7 @@ function getName() {
 }
 
 function getWeight() {
+    setTotal();
     return parseInt(document.querySelector("#w").value);
 }
 
@@ -23,7 +24,9 @@ function getHeight() {
 function getFly() {
     return parseInt(document.querySelector("#fl").value);
 }
-
+function getFight() {
+    return parseInt(document.querySelector("#fig").value);
+}
 
 function getFire() {
     return parseInt(document.querySelector("#fi").value);
@@ -67,7 +70,9 @@ function setWeight(height) {
 function setFly(fly) {
     document.querySelector("#fl").value = parseInt(fly);
 }
-
+function setFight(fight) {
+    document.querySelector("#fig").value = parseInt(fight);
+}
 function setFire(fire) {
     document.querySelector("#fi").value = parseInt(fire);
 }
@@ -80,8 +85,8 @@ function setElectric(electric) {
     document.querySelector("#e").value = parseInt(electric);
 }
 
-function setFrozen(ice) {
-    document.querySelector("#fr").value = parseInt(ice);
+function setFrozen(frozen) {
+    document.querySelector("#fr").value = parseInt(frozen);
 }
 
 function setTotal(total) {
@@ -93,12 +98,13 @@ function setTotal(total) {
     Function to create tokimon objects in JSON format
 */
 function createTokimon() {
-    let sum = (getFly() + getFire() + getWater() + getElectric() + getFrozen())
+    let sum = (getFly() + getFire() + getFight() + getWater() + getElectric() + getFrozen())
     var tokimon = {
         [tokimonname] : getName(),
         [height] : getHeight(),
         [weight] : getWeight(),
         [fly] : getFly(),
+        [fight] : getFight(),
         [fire] : getFire(),
         [water] : getWater(),
         [electric] : getElectric(),
@@ -112,19 +118,19 @@ function createTokimon() {
     @return - return the total of the 6 other battle attributes
 */
 function sumTotal() {
-    return (getFly() + getFire() + getWater() + getElectric() + getFrozen());
+    return (getFly() + getFire() + getFight() + getWater() + getElectric() + getFrozen());
 }
 
 /*
     Automatically Update Total Number on KeyPress/Click
 */
-inputArray.forEach(function(element) {
+arrInput.forEach(function(element) {
     element.addEventListener("keyup", function() {
         setTotal(sumTotal());
     }
 )});
 
-inputArray.forEach(function(element) {
+arrInput.forEach(function(element) {
     element.addEventListener("click", function() {
         setTotal(sumTotal());
     }

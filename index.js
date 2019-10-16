@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 5000
 const { Pool } = require('pg');
 const pool = new Pool({
   //connectionString: process.env.DATABASE_URL;
-  connectionString: 'postgres://noratoki:1234@localhost/toki_data'
+  connectionString: 'postgres://postgres:@localhost/toki_data'
 });
 pool.connect();
 var app = express();
@@ -27,18 +27,19 @@ app.get('/', (req, res) => {
 
 app.get('/AddTokimon', (req,res) => { res.render('AddTokimon')})
 app.get('/trainer', (req,res) => { res.render('trainer')})
-//app.get('/database', (req,res) => { res.render('database')})
 
 app.get('/database', (req, res) => {
     var getTableInfo = `SELECT * FROM tokimons`;
+    console.log(getTableInfo)
     pool.query(getTableInfo, (error, result) => {
+        console.log(result);
         if (error)
             res.end(error);
         var results = {'rows': result.rows };
+        console.log(results);
         res.render('database.ejs', results)
     });
 });
-
 
 
 /*
@@ -82,15 +83,18 @@ app.get('/remove/:id', (req,res) => {
         res.render('delete.ejs')
     });
 });
+*/
+
+
 
 app.post("/submit", (req, res) => {
     
-    var submitQuery = `INSERT INTO tokimons(trainername, tokimonname, weight, height, fly, fight, fire, water, electric, frozen, total) VALUES('${req.body.trainername}','${req.body.tokimonname}',${req.body.weight},${req.body.height},${req.body.fly},${req.body.fight}, ${req.body.fire},${req.body.water},${req.body.electric},${req.body.frozen},${req.body.total})`;
-    
-    pool.query(submitQuery, (error, result) => {
+    var insertData = `INSERT INTO tokimons(trainername, tokimonname, weight, height, fly, fight, fire, water, electric, frozen) VALUES('${req.body.trname}','${req.body.tokiname}',${req.body.we},${req.body.he},${req.body.fl},${req.body.fig}, ${req.body.fi},${req.body.wa},${req.body.el},${req.body.fr})`;
+    console.log(insertData);
+
+    pool.query(insertData, (error, result) => {
         if (error)
             res.end(error);
     });
-    
     res.render('submit.ejs')
-});*/
+});

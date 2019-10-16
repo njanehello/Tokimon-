@@ -5,7 +5,7 @@
 
     --normal_color: #C6C6A7;
     --white: #FFFFFF;
-    --border_color: rgb(147, 215, 255);
+
     
 }
 h1{
@@ -46,6 +46,8 @@ p{
 
 li {
     display: inline;
+    padding: 300px;
+
 }
 
 .navigationButton {
@@ -55,28 +57,20 @@ li {
     margin: .25em 0em .25em 0em;
 }
 
-h6 {
-    font-size: 2em;
-    padding: .5em 1em .5em 0em;
-    margin: 0em;
-    color: black;
-}
-
-/* CSS Styles for Add page */
-
-#displayDescription {
-    padding: 0em 0em 0em 3em;
-}
-
 table {
     margin: 1em auto auto auto;
     padding: 1em;
     border: 5pt solid var(--border_color);
     background-color: white;
+    text-align: center;
+}
+td{
+    background-color: white;
+    width: 5em;
+    text-align:center
 }
 
 th {
     background-color: white;
-    border: 1pt solid rgb(147, 215, 255);
     width: 5em;
 }

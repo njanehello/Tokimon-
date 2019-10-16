@@ -4,23 +4,24 @@
   <title> ADD YOUR TOKIMON </title>
   <link rel="stylesheet" href="/stylesheets/AddTokimon.css" type="text/css" media="all">
   <script type="text/javascript" src="/js/tokimon.js" defer> </script>
+  <button type="button" class="homeBut" id="homeButton">
+      <a class="homeB" id="homel" href="/"> <h6>Home</h6> </a>
+  </button>
 </head>
 <body>
   <h1>ADD YOUR TOKIMON!</h1>
-    <form class = "tokimonForm">
-            <label> Trainer Name:</label>  <input  id = "trn" type="text" name="Trname" placeholder="Text" required><br>
-            <label> Tokimon Name:</label>  <input id = "tn" type="text" name="Tokiname" placeholder="Text" required><br>
-            <label> Weight:  </label>  <input id = "w" type="number" name="We" autocomplete="off"  placeholder="Number" pattern="[0-9]" min="1"><br>
-            <label> Height:  </label>  <input id ="h" type="number" name="He" placeholder="Number" pattern="[0-9]" min="1"><br>
-            <label> Fly:  </label>  <input id ="fl" type="number" name="Fl "placeholder="Number" pattern="[0-9]" min="0" max="100"><br>
-            <label> Fight:  </label>  <input id="fig" type="number" name="Fig" placeholder="Number" pattern="[0-9]" min="0" max="100"><br>
-            <label> Fire:  </label>  <input id="fi" type="number" name="Fi" placeholder="Number" pattern="[0-9]" min="0" max="100"><br>
-            <label> Water:  </label>  <input id="wa" type="number" name="Wa" placeholder="Number" pattern="[0-9]" min="0" max="100"><br>
-            <label> Electric:  </label>  <input id="e" type="number" name="El" placeholder="Number" pattern="[0-9]" min="0" max="100"><br>
-            <label> Frozen:  </label>  <input id="fr" type="number" name="Fr" placeholder="Number" pattern="[0-9]" min="0" max="100"><br>
-            <label> Total:  </label>  <input class="inputs" id="total" type="number" name="tot" placeholder="Total" pattern="[0-9]" min="0" max="600" readonly><br>
-          
-            <label></label>  <input id= "sub" type="submit">
+    <form class = "tokimonForm" action="/submit" method="post">
+            <label> Trainer Name:</label>  <input  id = "trn" type="text" name="trname" placeholder="Text" required><br>
+            <label> Tokimon Name:</label>  <input id = "tn" type="text" name="tokiname" placeholder="Text" required><br>
+            <label> Weight:  </label>  <input id = "w" type="number" name="we" autocomplete="off" placeholder="Number" min="1"><br>
+            <label> Height:  </label>  <input id ="h" type="number" name="he" placeholder="Number" min="1"><br>
+            <label> Fly:  </label>  <input id ="fl" type="number" name="fl"placeholder="Number" min="0" max="100"><br>
+            <label> Fight:  </label>  <input id="fig" type="number" name="fig" placeholder="Number" min="0" max="100"><br>
+            <label> Fire:  </label>  <input id="fi" type="number" name="fi" placeholder="Number" min="0" max="100"><br>
+            <label> Water:  </label>  <input id="wa" type="number" name="wa" placeholder="Number" min="0" max="100"><br>
+            <label> Electric:  </label>  <input id="e" type="number" name="el" placeholder="Number" min="0" max="100"><br>
+            <label> Frozen:  </label>  <input id="fr" type="number" name="fr" placeholder="Number" min="0" max="100"><br> 
+            <label></label>  <button class="subBut" id="subBut" type="submit"> Submit </button>      
     </form>
     </body> 
 </html>
