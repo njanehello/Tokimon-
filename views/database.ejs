@@ -41,6 +41,9 @@
             <td>    <%= rows[j].water%>  </td>
             <td>   <%= rows[j].electric%>  </td>
             <td><%= rows[j].frozen%></td>
+            <td> <a href='/database/<%=rows[i].id%>'>EDIT</a></td>
+            <td> <a href='/remove/<%=rows[i].id%>'>REMOVE</a></td>
+
 
         </tr>
         <% }; %>
