@@ -7,6 +7,10 @@ h1{
     color: white;
     padding-left: 170px;
 }
+p{
+    color: red;
+    padding-left: 170px;
+}
 a{
     text-align: center;
 	color: white;
