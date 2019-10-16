@@ -30,13 +30,10 @@ app.get('/trainer', (req,res) => { res.render('trainer')})
 
 app.get('/database', (req, res) => {
     var getTableInfo = `SELECT * FROM tokimons`;
-    console.log(getTableInfo)
     pool.query(getTableInfo, (error, result) => {
-        console.log(result);
         if (error)
             res.end(error);
         var results = {'rows': result.rows };
-        console.log(results);
         res.render('database.ejs', results)
     });
 });
