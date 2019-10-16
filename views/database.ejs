@@ -1,9 +1,8 @@
-
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title> YOUR TOKIMON </title>
-    <link rel="stylesheet" href="/stylesheets/database.css" type="text/css" media="all">
+<meta charset="UTF-8">
+<title> YOUR TOKIMON </title>
+<link rel="stylesheet" href="/stylesheets/database.css" type="text/css" media="all">
 </head>
 
 <body>
@@ -11,17 +10,42 @@
 <h1>Database Results</h1>
 <p> Your Tokimon Database! You may EDIT or REMOVE from the Database! </p>
 <form id="form" action="/remove" method="post">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Trainer Name</th>
+            <th>Tokimon Name</th>
+            <th>Weight</th>
+            <th>Height</th>
+            <th>Fly</th>
+            <th>Fight</th>
+            <th>Fire</th>
+            <th>Water</th>
+            <th>Electric</th>
+            <th>Frozen</th>
+            <th>Total</th>
+            <th>EDIT</th>
+            <th>REMOVE</th>
+        </tr>
 
-    <ul>
-            <li><%= "ID" %> <%= "Trainer Name"%> <%= "Tokimon Name"%> <%= "Weight"%>  <%= "Height"%>  
-                <%= "Fly"%>  <%= "Fight"%> <%= "Fire"%>  <%= "Water"%>  <%= "Electric"%> <%= "Frozen"%> <%= "Electric"%>  <%= "Total"%>  <%= "EDIT"%>  <%= "REMOVE"%> </li>
-                <br>
         <% for (var j=0; j<rows.length; j++) {%>
-            <li> <%= rows[j].id %>     <%= rows[j].trainername %>  <%= rows[j].tokimonname%>  <%= rows[j].weight%>  <%= rows[j].height%>  <%= rows[j].fly%>  
-                <%= rows[j].fight%>  <%= rows[j].fire%>  <%= rows[j].water%>  <%= rows[j].electric%>  <%= rows[j].frozen%></li>
-                <br>
+                <tr>
+        <td> <%= rows[j].id %> </td>
+            <td>   <%= rows[j].trainername %>  </td>
+            <td>    <%= rows[j].tokimonname%>  </td>
+            <td>   <%= rows[j].weight%>  </td>
+            <td>    <%= rows[j].height%>  </td>
+            <td>    <%= rows[j].fly%>  </td>
+            <td>    <%= rows[j].fight%>  </td>
+            <td>    <%= rows[j].fire%>  </td>
+            <td>    <%= rows[j].water%>  </td>
+            <td>   <%= rows[j].electric%>  </td>
+            <td><%= rows[j].frozen%></td>
+
+        </tr>
         <% }; %>
-    </ul>
+
+    </table>
 </form>
 
 </div>
