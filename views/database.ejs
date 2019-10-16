@@ -27,7 +27,7 @@
             <th>Electric</th>
             <th>Frozen</th>
             <th>Total</th>
-            <th>EDIT</th>
+            <th>SEE INFO</th>
             <th>REMOVE</th>
         </tr>
 
@@ -45,8 +45,8 @@
             <td>   <%= rows[j].electric%>  </td>
             <td><%= rows[j].frozen%></td>
             <td><%= parseFloat(rows[j].fire) + parseFloat(rows[j].water) + parseFloat(rows[j].electric) + parseFloat(rows[j].fly) + parseFloat(rows[j].fight) + parseFloat(rows[j].frozen) %></td>
-            <td> <a href='/database/<%=rows[j].id%>'>EDIT</a></td>
-            <td> <a href='/remove/<%=rows[j].id%>'>REMOVE</a></td>
+            <td> <a href='/database/<%=rows[j].id%>'>See Info</a></td>
+            <td> <a href='/remove/<%=rows[j].id%>'>Remove</a></td>
 
 
         </tr>
