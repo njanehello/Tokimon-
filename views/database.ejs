@@ -3,6 +3,9 @@
 <meta charset="UTF-8">
 <title> YOUR TOKIMON </title>
 <link rel="stylesheet" href="/stylesheets/database.css" type="text/css" media="all">
+<button type="button" class="homeBut" id="homeButton">
+        <a class="homeB" id="homel" href="/"> <h6>Home</h6> </a>
+    </button>
 </head>
 
 <body>
@@ -41,8 +44,9 @@
             <td>    <%= rows[j].water%>  </td>
             <td>   <%= rows[j].electric%>  </td>
             <td><%= rows[j].frozen%></td>
-            <td> <a href='/database/<%=rows[i].id%>'>EDIT</a></td>
-            <td> <a href='/remove/<%=rows[i].id%>'>REMOVE</a></td>
+            <td><%= parseFloat(rows[j].fire) + parseFloat(rows[j].water) + parseFloat(rows[j].electric) + parseFloat(rows[j].fly) + parseFloat(rows[j].fight) + parseFloat(rows[j].frozen) %></td>
+            <td> <a href='/database/<%=rows[j].id%>'>EDIT</a></td>
+            <td> <a href='/remove/<%=rows[j].id%>'>REMOVE</a></td>
 
 
         </tr>

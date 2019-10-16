@@ -40,7 +40,7 @@ app.get('/database', (req, res) => {
 });
 
 
-/*
+
 app.get('/database/:id', (req,res) => {
     req.params.id // we can grab the id from the request HTML
     var idInfo = `SELECT * FROM tokimons WHERE id=${req.params.id}`;
@@ -48,12 +48,12 @@ app.get('/database/:id', (req,res) => {
         if (error)
             res.end(error);
         var results = {'rows': result.rows };
-        res.render('modify.ejs', results)
+        res.render('edit.ejs', results)
     });
 });
 
 app.post("/update", function(req, res) {
-    var updateInfo = `UPDATE tokimons SET trainername = '${req.body.trainerName}', tokimonname = '${req.body.tokimonname}', weight = ${req.body.weight}, height = ${req.body.height}, fly = ${req.body.fly}, fight = ${req.body.fight}, fire = ${req.body.fire}, water = ${req.body.water}, electric = ${req.body.electric}, frozen = ${req.body.frozen}, total = ${req.body.total}  WHERE id = ${req.body.id}`;
+    var updateInfo = `UPDATE tokimons SET trainername = '${req.body.trainerName}', tokimonname = '${req.body.tokimonname}', weight = ${req.body.weight}, height = ${req.body.height}, fly = ${req.body.fly}, fight = ${req.body.fight}, fire = ${req.body.fire}, water = ${req.body.water}, electric = ${req.body.electric}, frozen = ${req.body.frozen} WHERE id = ${req.body.id}`;
 
     pool.query(updateInfo, (error, result) => {
         if (error)
@@ -78,12 +78,9 @@ app.get('/remove/:id', (req,res) => {
     pool.query(deleteQuery, (error, result) => {
         if (error)
             res.end(error);
-        res.render('delete.ejs')
+        res.render('remove.ejs')
     });
 });
-*/
-
-
 
 app.post("/submit", (req, res) => {
     

@@ -1,0 +1,50 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title> YOUR TOKIMON </title>
+<link rel="stylesheet" href="/stylesheets/edit.css" type="text/css" media="all">
+<button type="button" class="homeBut" id="homeButton">
+        <a class="homeB" id="homel" href="/"> <h6>Home</h6> </a>
+    </button>
+</head>
+
+<body>
+<div class="container">
+<h1>Your Tokimon!</h1>
+<p> Here is your tokimon! Make appropraite updates if needed...</p>
+<form id="form" action="/edit" method="post">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Trainer Name</th>
+            <th>Tokimon Name</th>
+            <th>Weight</th>
+            <th>Height</th>
+            <th>Fly</th>
+            <th>Fight</th>
+            <th>Fire</th>
+            <th>Water</th>
+            <th>Electric</th>
+            <th>Frozen</th>
+            <th>Total</th>
+        </tr>
+            <tr>
+            <td> <input type ="number" name="id" readonly value = <%=rows[0].id %>></td>
+            <td><input type ="text" name="trainer" required value = <%=rows[0].trainername %>></td>
+            <td><input type ="text" name="tokiname" required value = <%=rows[0].tokimonname %>></td>
+            <td> <input type ="number" name="tokiweight" required value = <%=rows[0].weight %> min="1"></td>
+            <td>   <input type ="number" name="tokiheight" required value = <%=rows[0].height %> min="1"> </td>
+            <td>   <input type ="number" name="tokifly" required value = <%=rows[0].fly %> min="0" max="100">  </td>
+            <td>  <input type ="number" name="tokifight" required value = <%=rows[0].fight %> min="0" max="100"></td>
+            <td>   <input type ="number" name="tokifire" required value = <%=rows[0].fire %> min="0" max="100"></td>
+            <td>   <input type ="number" name="tokiwater" required value = <%=rows[0].water %> min="0" max="100"></td>
+            <td>   <input type ="number" name="tokielectric" required value = <%=rows[0].electric %> min="0" max="100"> </td>
+            <td>  <input type ="number" name="tokifrozen" required value = <%=rows[0].frozen %> min="0" max="100"></td>
+            <td><%= parseFloat(rows[0].fire) + parseFloat(rows[0].water) + parseFloat(rows[0].electric) + parseFloat(rows[0].fly) + parseFloat(rows[0].fight) + parseFloat(rows[0].frozen) %> </td>  
+        </tr>
+    </table>
+</form>
+
+</div>
+</body>
+</html>

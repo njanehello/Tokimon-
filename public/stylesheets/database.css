@@ -8,6 +8,23 @@
 
     
 }
+#homeButton{
+    padding-top: 0px;
+    width: 5% ;
+      margin: 0px;
+      box-sizing: border-box;
+      border-radius: 3px;
+    border: 1px solid #c90909;
+    background-color:#f54b4b;
+    text-align: center;
+	color: white;
+	font-size: 16px;
+}
+.homeB{
+	text-align: center;
+	color: white;
+	font-size: 16px;
+}
 h1{
     margin-top:0px;
 	text-align: center;
@@ -50,6 +67,11 @@ li {
 
 }
 
+a{
+    text-align: center;
+
+	font-size: 16px;
+}
 .navigationButton {
     background-color: var(--navigation_background_color);
     border: none;
