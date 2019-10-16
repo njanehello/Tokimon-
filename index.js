@@ -94,5 +94,5 @@ app.post("/submit", (req, res) => {
         if (error)
             res.end(error);
     });
-    res.render('submit.ejs')
+    res.render('tokimon.ejs')
 });
