@@ -3,7 +3,8 @@ const path = require('path');
 const PORT = process.env.PORT || 5000
 
 const { Pool } = require('pg');
-const pool = new Pool({
+var pool;
+pool = new Pool({
   connectionString: process.env.DATABASE_URL
   //connectionString: 'postgres://postgres:@localhost/toki_data'
 });
@@ -86,7 +87,7 @@ app.get('/remove/:id', (req,res) => {
 
 app.post("/submit", (req, res) => {
     
-    var insertData = `INSERT INTO tokimons(trainername, tokimonname, weight, height, fly, fight, fire, water, electric, frozen) VALUES('${req.body.trname}','${req.body.tokiname}',${req.body.we},${req.body.he},${req.body.fl},${req.body.fig}, ${req.body.fi},${req.body.wa},${req.body.el},${req.body.fr})`;
+    var insertData = `INSERT INTO tokimons(trainername, tokimonname, weight, height, fly, fight, fire, water, electric, frozen) VALUES('${req.body.trname}','${req.body.tokiname}',${req.body.we},${req.body.he},${req.body.fl},${req.body.fig},${req.body.fi},${req.body.wa},${req.body.el},${req.body.fr})`;
     console.log(insertData);
 
     pool.query(insertData, (error, result) => {
