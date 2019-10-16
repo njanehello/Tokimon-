@@ -1,13 +1,4 @@
-:root{
-    --background_color: #FFFFFF;
-    --navigation_background_color: #EAE7E7;
-    --navigation_button_color: #FFFFFF;
 
-    --normal_color: #C6C6A7;
-    --white: #FFFFFF;
-
-    
-}
 #homeButton{
     padding-top: 0px;
     width: 5% ;
@@ -37,24 +28,6 @@ body {
     background: url("/pictures/4.jpg");
 }
 
-.description {
-    padding: 0em 0em 0em 1em;
-}
-
-#backgroundDiv {
-    display: block;
-    position: relative;
-    min-height: 60em;
-}
-
-
-#navigationBar {
-    background-color: var(--navigation_background_color);
-    padding: 0em 0em 0em 0em;
-    margin: 0;
-    width: 100%;
-    font-size: 0;
-}
 p{
     text-align: center;
     color: white;
@@ -72,12 +45,7 @@ a{
 
 	font-size: 16px;
 }
-.navigationButton {
-    background-color: var(--navigation_background_color);
-    border: none;
-    padding: 0em 1em 0em 0em;
-    margin: .25em 0em .25em 0em;
-}
+
 
 table {
     margin: 1em auto auto auto;
